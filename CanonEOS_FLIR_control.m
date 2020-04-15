@@ -167,9 +167,25 @@ for i = 1:size(louver,2)  % Cycle through the louver angles
             % Use pan offsets to rotate +/- 90 degrees
             fprintf(obj1, 'po9000 ');
             fscanf(obj1);
+            
+            % FLIR has now rotated 90 degrees and we need to read the
+            % illuminance measurment from the Minolta:
+            
+            % ADD MINOLTA CODE HERE
+            
         elseif j == 2
-            % Now, rotate back to home, which is an offset of -9000
-            fprintf(obj1, 'po-9000 ');
+            % Use pan offsets to rotate another 90 degrees:
+            fprintf(obj1, 'po9000 ');
+            fscanf(obj1);
+            
+            % FLIR has now rotated 90 degrees and we need to read the
+            % illuminance measurment from the Minolta:
+            
+            % ADD MINOLTA CODE HERE
+                     
+            % Now, rotate back to home, which is an offset of -18000
+            % Note: could alterrnatively use the command 'pp0 '
+            fprintf(obj1, 'po-18000 ');
             fscanf(obj1);
         end
         
